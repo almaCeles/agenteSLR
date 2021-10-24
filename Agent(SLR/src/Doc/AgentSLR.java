@@ -38,13 +38,16 @@ public class AgentSLR extends Agent{
 				{1518,58}
 				};
                   
-                slr s=new slr( datos,datos.length);
-                s.calcularVariables();
-              
-                System.out.println("b0: "+s.calcularB0());
-                System.out.println("b0: "+s.calcularB1());
+                slr s=new slr( );
+               s.calcularBs( datos.length,datos);
+               
+               
+                double b0=s.calcularBs( datos.length,datos)[0];
+                double b1=s.calcularBs( datos.length,datos)[1];
+                System.out.println("b0: "+b0);
+                System.out.println("b0: "+b1);
                 
-                System.out.println("resultado : "+numero+"," +s.predecir(s.calcularB0(),s.calcularB1(),numero));
+                System.out.println("resultado : "+numero+"," +s.predecir(b0,b1,numero));
                 
 
             }
